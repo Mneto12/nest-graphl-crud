@@ -1,0 +1,25 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Project {
+  id: Int!
+  name: String!
+  description: String!
+  status: Status!
+  devs: String
+  roles: String
+}
+
+"""Status of a project"""
+enum Status {
+  """Default"""
+  active
+
+  """When a project off"""
+  inactive
+}
+
+type Query {
+  projects: [Project!]!
+}
