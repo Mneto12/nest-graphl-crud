@@ -23,3 +23,15 @@ enum Status {
 type Query {
   projects: [Project!]!
 }
+
+type Mutation {
+  createProject(createProjectInput: createProjectInput!): Project!
+}
+
+input createProjectInput {
+  name: String!
+  description: String!
+  status: Status!
+  devs: String
+  roles: String
+}
