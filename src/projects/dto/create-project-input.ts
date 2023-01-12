@@ -1,6 +1,7 @@
 import { InputType, Field } from "@nestjs/graphql";
 import { IsAlpha } from "class-validator";
 import { IsNotEmpty } from "class-validator";
+import { Dev } from "src/devs/entities/dev.entity";
 import { Status } from "../enum";
 
 @InputType()
@@ -20,8 +21,8 @@ export class createProjectInput {
     status: string;
 
     @IsNotEmpty()
-    @Field({nullable: true})
-    devs?: string;
+    @Field(type => [Dev], {nullable: true})
+    devs?: Dev[];
 
     @IsNotEmpty()
     @Field({nullable: true})

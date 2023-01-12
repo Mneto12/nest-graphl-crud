@@ -1,12 +1,13 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field, Int, InputType } from '@nestjs/graphql';
 import { Project } from "src/projects/project.entity";
 
 @Entity()
-@ObjectType()
+@InputType('CreateDevInput')
+@ObjectType('dev')
 export class Dev {
-  
-  @PrimaryGeneratedColumn()
+
+    @PrimaryGeneratedColumn()
     @Field(type => Int)
     id: number;
 

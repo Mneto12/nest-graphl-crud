@@ -7,7 +7,8 @@ type Project {
   name: String!
   description: String!
   status: Status!
-  devs: String
+  devId: Int!
+  devs: Dev!
   roles: String
 }
 
@@ -20,18 +21,34 @@ enum Status {
   inactive
 }
 
+type Dev {
+  id: Int!
+  name: String!
+  email: String!
+  projects: [Project!]
+  roles: String
+}
+
 type Query {
   projects: [Project!]!
+  devs: [Dev!]!
+  dev(id: Int!): Dev!
 }
 
 type Mutation {
   createProject(createProjectInput: createProjectInput!): Project!
+  createDev(createDevInput: CreateDevInput!): Dev!
 }
 
 input createProjectInput {
   name: String!
   description: String!
   status: Status!
-  devs: String
+  roles: String
+}
+
+input CreateDevInput {
+  name: String!
+  email: String!
   roles: String
 }

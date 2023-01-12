@@ -23,13 +23,13 @@ export class DevsResolver {
     return this.devsService.findOne(id);
   }
 
-  @Mutation(() => Dev)
-  updateDev(@Args('updateDevInput') updateDevInput: UpdateDevInput) {
-    return this.devsService.update(updateDevInput.id, updateDevInput);
-  }
+  // @Mutation(() => Dev)
+  // updateDev(@Args('updateDevInput') updateDevInput: UpdateDevInput) {
+  //   return this.devsService.update(updateDevInput.id, updateDevInput);
+  // }
 
-  @Mutation(() => Dev)
-  removeDev(@Args('id', { type: () => Int }) id: number) {
-    return this.devsService.remove(id);
-  }
+  // @Mutation(() => Dev)
+  // removeDev(@Args('id', { type: () => Int }) id: number) {
+  //   return this.devsService.remove(id);
+  // }
 }

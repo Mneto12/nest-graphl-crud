@@ -1,10 +1,11 @@
-import { Field, ObjectType, Int } from "@nestjs/graphql";
+import { Field, ObjectType, Int, InputType } from "@nestjs/graphql";
 import { Dev } from "src/devs/entities/dev.entity";
 import { Column, Entity,ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Status } from "./enum";
 
 @Entity()
-@ObjectType()
+@InputType('createProjectInput')
+@ObjectType('project')
 export class Project {
 
     @PrimaryGeneratedColumn()
@@ -29,7 +30,7 @@ export class Project {
 
     @ManyToOne(() => Dev, dev => dev.name)
     @Field(type => Dev)
-    devs?: Dev;
+    devs?: Dev[];
 
     @Column({nullable: true})
     @Field({nullable: true})
