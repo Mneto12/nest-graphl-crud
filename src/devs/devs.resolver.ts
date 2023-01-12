@@ -1,24 +1,23 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { DevsService } from './devs.service';
-import { Dev } from './entities/dev.entity';
+import { Devs } from './entities/dev.entity';
 import { CreateDevInput } from './dto/create-dev.input';
-import { UpdateDevInput } from './dto/update-dev.input';
 
-@Resolver(() => Dev)
+@Resolver(() => Devs)
 export class DevsResolver {
   constructor(private readonly devsService: DevsService) {}
 
-  @Mutation(() => Dev)
+  @Mutation(() => Devs)
   createDev(@Args('createDevInput') createDevInput: CreateDevInput) {
     return this.devsService.create(createDevInput);
   }
 
-  @Query(() => [Dev], { name: 'devs' })
+  @Query(() => [Devs], { name: 'devs' })
   findAll() {
     return this.devsService.findAll();
   }
 
-  @Query(() => Dev, { name: 'dev' })
+  @Query(() => Devs, { name: 'dev' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.devsService.findOne(id);
   }

@@ -1,11 +1,11 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { ObjectType, Field, Int, InputType } from '@nestjs/graphql';
 import { Project } from "src/projects/project.entity";
 
 @Entity()
-@InputType('CreateDevInput')
-@ObjectType('dev')
-export class Dev {
+@InputType()
+@ObjectType()
+export class Devs {
 
     @PrimaryGeneratedColumn()
     @Field(type => Int)
@@ -20,11 +20,6 @@ export class Dev {
     email: string;
 
     @OneToMany(() => Project, project => project.devs)
-    @Field(type => [Project], {nullable: true})
+    @Field(() => Project)
     projects?: Project[];
-
-    @Column({nullable: true})
-    @Field({nullable: true})
-    roles: string;
-
 }

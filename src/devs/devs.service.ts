@@ -3,11 +3,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateDevInput } from './dto/create-dev.input';
 import { UpdateDevInput } from './dto/update-dev.input';
-import { Dev } from './entities/dev.entity';
+import { Devs } from './entities/dev.entity';
 
 @Injectable()
 export class DevsService {
-  constructor(@InjectRepository(Dev) private devsRepository: Repository<Dev>) {}
+  constructor(@InjectRepository(Devs) private devsRepository: Repository<Devs>) {}
 
   create(createDevInput: CreateDevInput) {
     const newDev = this.devsRepository.create(createDevInput);

@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { createProjectInput } from './dto/create-project-input';
-import { Project } from './project.entity';
+import { Project } from '../projects/project.entity';
 import { ProjectsService } from './projects.service';
 
 @Resolver(of => Project)

@@ -15,7 +15,7 @@ export class CreateDevInput {
 
     @IsNotEmpty()
     @Field(type => [Project], {nullable: true})
-    projects: Project[];
+    projects?: Project[];
 
     @IsNotEmpty()
     @Field({nullable: true})

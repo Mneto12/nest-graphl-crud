@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm/dist';
 import { DevsService } from 'src/devs/devs.service';
-import { Dev } from 'src/devs/entities/dev.entity';
+import { Devs } from 'src/devs/entities/dev.entity';
 import { Repository } from 'typeorm';
 import { createProjectInput } from './dto/create-project-input';
 import { Project } from './project.entity';
@@ -23,7 +23,7 @@ export class ProjectsService {
         return this.projectRepository.find();
     }
 
-    getDev(devId: number): Promise<Dev[]> {
+    getDev(devId: number): Promise<Devs[]> {
         return this.devsService.findOne(devId);
     }
 }
